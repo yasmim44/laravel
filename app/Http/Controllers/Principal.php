@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class Principal extends Controller
 {
-    function home(){
-        return view ('pagina-home');
+    function index(){
+        return view ('pagina-principal');
     }
 
     
