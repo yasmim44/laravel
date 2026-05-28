@@ -14,10 +14,9 @@ use App\Http\Middleware\LogAcessoMiddleware;
 */
 
 Route::get('/', [App\Http\Controllers\Principal::class, 'home'])->name('pagina-inicial');
-Route::get('/sobre', [App\Http\Controllers\Sobre::class, 'about'])->name('pagina-sobre');
-Route::get('/aluno/listar', [App\Http\Controllers\Aluno::class, 'show'])->name('aluno.namephp');
-Route::get('/professor/listar', [App\Http\Controllers\Professor::class, 'show'])->name('professor.namephp');
-Route::get('/curso/listar', [App\Http\Controllers\Curso::class, 'show'])->name('curso.namephp');
-Route::get('/aluno/add/{nome}/{telefone}/{email}', [App\Http\Controllers\Aluno::class, 'add'])->name('aluno.add');
+Route::prefix('/aluno')->group(function(){
+    Route::get('/index', [App\Http\Controllers\AlunoController::class, 'index'])->name('aluno.index');
+    Route::post('/add', [App\Http\Controllers\AlunoController::class, 'add'])->name('aluno.add');
+}); 
 
 
