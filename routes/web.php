@@ -13,10 +13,7 @@ use App\Http\Middleware\LogAcessoMiddleware;
 |
 */
 
-Route::get('/', [App\Http\Controllers\Principal::class, 'home'])->name('pagina-inicial');
-Route::prefix('/aluno')->group(function(){
-    Route::get('/index', [App\Http\Controllers\AlunoController::class, 'index'])->name('aluno.index');
-    Route::post('/add', [App\Http\Controllers\AlunoController::class, 'add'])->name('aluno.add');
-    Route::get('/remove/{id}', [App\Http\Controllers\AlunoController::class, 'remove'])->name('aluno.remove');
-}); 
-
+Route::get('/', [App\Http\Controllers\Principal::class, 'principal'])->name('principal');
+Route::get('/sobre', [App\Http\Controllers\Principal::class, 'sobre'])->name('sobre');
+Route::get('/produtos', [App\Http\Controllers\Principal::class, 'produtos'])->name('produtos');
+Route::get('/contatos', [App\Http\Controllers\Principal::class, 'contato'])->name('contato');
